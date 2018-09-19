@@ -9,9 +9,10 @@
 - Validez
 - ~~Eficiencia~~
 
-
+## Prácticas
+Cada viernes generalmente da el guión para hacer durante la semana siguiente para entregar el viernes siguiente. El guión uno se hace este viernes.
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc3MzEzOTczXX0=
+eyJoaXN0b3J5IjpbLTEzOTUwNjc0MywzNzczMTM5NzNdfQ==
 -->
