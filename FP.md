@@ -19,5 +19,6 @@ Un operador, como por ejemplo el operador de asignación '=', no es más que una
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTUwNjc0MywzNzczMTM5NzNdfQ==
+eyJoaXN0b3J5IjpbLTEzNTcxNzEwNzgsLTEzOTUwNjc0MywzNz
+czMTM5NzNdfQ==
 -->
