@@ -11,30 +11,17 @@ struct fecha{
 int main(){
     fecha fecha_introducida, fecha_siguiente, fecha_anterior;
     bool es_bisiesto = false;
-//    int meses_30_dias[] = {4, 6, 9, 11};
-//    int meses_31_dias[] = {1, 3, 5, 7, 8, 10, 12};
     
     cout << "Introduce una fecha (dia/mes/año): ";
     cin >> fecha_introducida.dia >> fecha_introducida.mes >> fecha_introducida.ano;
 
 
-    //BISIESTO
+    //CALCULAR SI EL AÑO ES BISIESTO
     //es bisiesto cuando es divisible entre 4 y no es secular, o cuando es divisible entre 4, secular y divisible entre 400
-    if (fecha_introducida.ano % 4 == 0){
-        //es divisible entre 4
-        if (fecha_introducida.ano % 100 == 0){
-            //es año secular
-            if (fecha_introducida.ano % 400 == 0){
-                //es divisible entre 400
-                es_bisiesto = true;
-            }
-        } else {
-            //no es año secular
-             es_bisiesto = true;
-        }
-    }
+    es_bisiesto = (fecha_introducida.ano % 4 == 0 && (fecha_introducida.ano % 100 != 0 || fecha_introducida.ano % 400 == 0));
 
-    //SIGUIENTE DIA
+    //FECHA SIGUIENTE
+    //Comprobaciones para aumentar el mes (es decir, cuando sea el ultimo dia del mes):
     if ((fecha_introducida.dia == 30 && (fecha_introducida.mes == 4 || fecha_introducida.mes == 6 ||
          fecha_introducida.mes == 9 || fecha_introducida.mes == 11)) || //meses de 30 dias
             (fecha_introducida.dia == 31 && (fecha_introducida.mes == 1 || fecha_introducida.mes == 3 ||
@@ -42,10 +29,10 @@ int main(){
                     fecha_introducida.mes == 10 || fecha_introducida.mes == 12)) || //meses de 31 dias
                         (fecha_introducida.mes == 2 && ((fecha_introducida.dia == 28 && !es_bisiesto) ||
                             (fecha_introducida.dia == 29 && es_bisiesto)))) {//febrero es especial 
-        //aumenta el mes
+        //Es el último dia del mes: aumenta el mes, y se establece día 1.
         fecha_siguiente.dia = 1;
-        if (fecha_introducida.mes == 12){
-            //aumenta el año
+        if (fecha_introducida.mes == 12){ //Comprobación para aumentar el año
+            //Es el último mes del año: aumenta el año
             fecha_siguiente.mes = 1;
             fecha_siguiente.ano = fecha_introducida.ano + 1;
         } else {
@@ -54,32 +41,49 @@ int main(){
             fecha_siguiente.ano = fecha_introducida.ano;
         }
     } else {
-        //aumenta el dia, no aumenta el mes, no aumenta el año
+        //Es un día normal: aumenta el dia, no aumenta el mes, no aumenta el año
         fecha_siguiente.dia = fecha_introducida.dia + 1;
         fecha_siguiente.mes = fecha_introducida.mes;
         fecha_siguiente.ano = fecha_introducida.ano;
     }
     
     
-//    int meses_30_dias[] = {4, 6, 9, 11};
-//    int meses_31_dias[] = {1, 3, 5, 7, 8, 10, 12};
-    //DIA ANTERIOR
-    if (fecha_introducida.dia == 1){
-        //disminuye el mes
-        if (fecha_introducida.mes == 1){
+    //FECHA ANTERIOR
+    if (fecha_introducida.dia == 1){ //Comprobación para disminuir el mes
+        //Es el primer día del mes: disminuye el mes, y se establece el última día del mes anterior.
+        if (fecha_introducida.mes == 1){ //Comprobación para disminuir el año.
+            //disminuye el año
             fecha_anterior.mes = 12;
-            fecha_anterior.año = fecha_introducida.año - 1;
+            fecha_anterior.ano = fecha_introducida.ano - 1;
         } else {
+            //no disminuye el año
             fecha_anterior.mes = fecha_introducida.mes - 1;
+            fecha_anterior.ano = fecha_introducida.ano;
         }
         
-        //pongo dia ultimo dia del mes anterior (el mes ya ha sido establecido)
-        if (fecha_anterior.mes == 4 || fecha_anterior.mes == 6 || fecha_anterior. 
+        //Establezco el último día del mes anterior (fecha_anterior.mes ya tiene el mes anterior a fecha_introducida.mes)
+        if (fecha_anterior.mes == 4 || fecha_anterior.mes == 6 || fecha_anterior.mes == 9 || fecha_anterior.mes == 11){
+            //Meses de 30 dias
+            fecha_anterior.dia = 30;
+        } else if (fecha_anterior.mes == 2){
+            //Febrero es especial
+            if (es_bisiesto){
+                fecha_anterior.dia = 29;
+            } else {
+                fecha_anterior.dia = 28;
+            }
+        } else {
+            //Meses de 31 dias
+            fecha_anterior.dia = 31;
+        }
     } else {
-        //disminuye el dia, no disminuye mes, no disminuye año
-
+        //Es un día normal: disminuye el dia, no disminuye mes, no disminuye año
+        fecha_anterior.dia = fecha_introducida.dia - 1;
+        fecha_anterior.mes = fecha_introducida.mes;
+        fecha_anterior.ano = fecha_introducida.ano;
     }
 
     cout << "La fecha siguiente es " << fecha_siguiente.dia << "/" << fecha_siguiente.mes << "/" << fecha_siguiente.ano << endl;
+    cout << "La fecha anterior es " << fecha_anterior.dia << "/" << fecha_anterior.mes << "/" << fecha_anterior.ano << endl;
     return 0;
 }
