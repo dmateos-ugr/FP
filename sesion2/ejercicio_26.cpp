@@ -14,7 +14,7 @@ int main(){
     distancia_choque1 = velocidad1*tiempo;
     distancia_choque2 = distancia-distancia_choque1;
     
-    cout << "El choque se produciría a una distancia de " << distancia_choque1 << " de la primera locomotora, y a " <<  distancia_choque2 << " de la segunda locomotora." << endl;
+    cout << "El choque se produciría tras " << tiempo << " segundos a una distancia de " << distancia_choque1 << " de la primera locomotora, y a " <<  distancia_choque2 << " de la segunda locomotora." << endl;
     
     return 0;
 }
