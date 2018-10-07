@@ -9,9 +9,11 @@ struct fecha{
 };
 
 int main(){
-    fecha fecha_introducida, fecha_siguiente, fecha_anterior;
+    //Declaración de variables
+    fecha fecha_introducida, fecha_siguiente, fecha_anterior, fecha_copia;
     bool es_bisiesto = false;
-    
+
+    //Entrada
     cout << "Introduce una fecha (dia/mes/año): ";
     cin >> fecha_introducida.dia >> fecha_introducida.mes >> fecha_introducida.ano;
 
@@ -83,7 +85,13 @@ int main(){
         fecha_anterior.ano = fecha_introducida.ano;
     }
 
+    //Copia de fecha
+    fecha_copia = fecha_introducida;
+
+    //Salida de datos
+    cout << "El año introducido es bisiesto: " << (es_bisiesto ? "sí" : "no") << endl;
     cout << "La fecha siguiente es " << fecha_siguiente.dia << "/" << fecha_siguiente.mes << "/" << fecha_siguiente.ano << endl;
     cout << "La fecha anterior es " << fecha_anterior.dia << "/" << fecha_anterior.mes << "/" << fecha_anterior.ano << endl;
+    cout << "Una copia de la fecha introducida es " << fecha_copia.dia << "/" << fecha_copia.mes << "/" << fecha_copia.ano << endl;
     return 0;
 }
