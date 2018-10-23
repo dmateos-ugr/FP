@@ -6,13 +6,11 @@
 using namespace std;
 
 int main(){
-    int ventas_sucursal1, ventas_sucursal2, ventas_sucursal3;
-    ventas_sucursal1 = ventas_sucursal2 = ventas_sucursal3 = 0;
+    int ventas_sucursal1 = 0, ventas_sucursal2 = 0, ventas_sucursal3 = 0;
     int id_sucursal, codigo_producto, n_unidades;
     int n_venta = 1;
     bool es_1_el_mayor, es_2_mayor_que_3;
-    
-    //cout << "1: " << ventas_sucursal1 << " 2: " << ventas_sucursal2 << " 3: " << ventas_sucursal3 << endl;
+
     //Entrada anticipada
     cout << "A continuación se introducirán los datos de las ventas de las diferentes sucursales (1, 2 o 3). Para finalizar, introduzca un -1 como identificador de la sucursal." << endl;
     do {
