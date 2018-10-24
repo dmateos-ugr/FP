@@ -10,7 +10,7 @@ using namespace std;
 
 int main(){
     int n, n1, n2;
-    int cifras, cifras_probadas = 0;
+    int cifras, cifras_probadas = 0, divisor = 0;
     bool desgarrable = false;
 
     cout << "Introduce un número entero: ";
@@ -21,8 +21,9 @@ int main(){
     }
 
     while (!desgarrable && cifras_probadas < cifras){
-        n1 = n / pow(10, cifras_probadas);
-        n2 = n % (int)pow(10, cifras_probadas);
+        divisor = pow(10, cifras_probadas);
+        n1 = n / divisor;
+        n2 = n % divisor;
         
         desgarrable = ( pow(n1 + n2, 2) == n );
         cifras_probadas += 1;        
