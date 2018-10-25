@@ -10,7 +10,7 @@ using namespace std;
 
 int main(){
     int n, n1, n2;
-    int cifras, cifras_probadas = 0, divisor = 0;
+    int cifras = 0, cifras_probadas = 0, divisor = 0;
     bool desgarrable = false;
 
     cout << "Introduce un número entero: ";
