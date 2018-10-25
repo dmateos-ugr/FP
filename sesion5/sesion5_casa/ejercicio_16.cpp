@@ -29,14 +29,10 @@ int main(){
         cifras++;
     }
 
-    cout << "El numero tiene " << cifras << " cifras." << endl;
-
     while (!desgarrable && cifras_probadas < cifras){
         divisor = pow(10, cifras_probadas);
         n1 = n / divisor;
         n2 = n % divisor;
-
-        cout << n1 << " " << n2 << "    " << pow(n1 + n2, 2) << endl;
 
         desgarrable = ( pow(n1 + n2, 2) == n );
         cifras_probadas += 1;        
