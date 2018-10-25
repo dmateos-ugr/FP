@@ -16,7 +16,7 @@ int main(){
     cout << "Introduce un número entero: ";
     cin >> n;
 
-    while (pow(10, cifras) < n){
+    while (pow(10, cifras) <= n){
         cifras++;
     }
 
@@ -24,7 +24,7 @@ int main(){
         divisor = pow(10, cifras_probadas);
         n1 = n / divisor;
         n2 = n % divisor;
-        
+
         desgarrable = ( pow(n1 + n2, 2) == n );
         cifras_probadas += 1;        
     }
