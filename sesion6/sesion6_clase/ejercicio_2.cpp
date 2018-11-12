@@ -5,7 +5,7 @@ using namespace std;
 int main(){
     const int TAMANO_MAXIMO = 10000;
     int vector[TAMANO_MAXIMO] = {0};
-    int tamano_real, tamano_real_result = 0;
+    int tamano_real;
     bool valor_repetido = false;
 
     //Entrada
