@@ -7,29 +7,28 @@ int main(){
     char vector[TAMANO_MAXIMO];
     int tamano_real;
     
-
     //Entrada    
-    cout << "Introduce el tamaño del vector: ";
+    cout << "Introduce el tamaño de la cadena: ";
     cin >> tamano_real;
 
-    cout << "Introduce la cadena1: ";
-    cin >> vector;
-
-    //Cálculos
-    //cout << vector1[0] << " " << vector2[0] << endl;
-
+    cout << "Introduce la cadena: ";
+    cin.ignore();
+    cin.getline(vector, tamano_real+1); //+1 por el caracter de fin de cadena
+    
+    //Cálculos    
     int i = 0;
     while (i < tamano_real){
         if (vector[i] >= 'A' && vector[i] <= 'Z'){
-            cout << "Eliminado elemento " << vector[i] << endl;
-            for (int j = i; j++; j < tamano_real-1){
+            for (int j = i; j < tamano_real; j++){
                 vector[j] = vector[j+1];
             }
             tamano_real--;
+        } else {
+            i++;
         }
-        i++;
     }
 
+    //Salida
     cout << "El vector final es: ";
     for (int i = 0; i < tamano_real; i++){
         cout << vector[i];
