@@ -13,7 +13,7 @@ int main(){
     int i = 0;
     while (i < strlen( vector )){
         if (vector[i] >= 'A' && vector[i] <= 'Z'){
-            for (int j = i; j < tamano_real; j++){
+            for (int j = i; j < strlen(vector); j++){
                 vector[j] = vector[j+1];
             }
         } else {
@@ -23,7 +23,7 @@ int main(){
 
     //Salida
     cout << "El vector final es: ";
-    for (int i = 0; i < tamano_real; i++){
+    for (int i = 0; i < strlen(vector); i++){
         cout << vector[i];
     }
     cout << endl;
