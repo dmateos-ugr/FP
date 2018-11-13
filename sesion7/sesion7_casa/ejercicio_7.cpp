@@ -1,19 +1,13 @@
 #include <iostream>
-#include <cstring> //PROPUESTA: usar cstring para no tener que pedir longitud máxima
+#include <cstring> 
 using namespace std;
 
 int main(){
     const int TAMANO_MAXIMO = 10000;
     char vector[TAMANO_MAXIMO];
-    //int tamano_real; // Esto no sería necesario
-    
-    //Entrada    
-    //cout << "Introduce el tamaño de la cadena: ";
-    //cin >> tamano_real;
-
+   
     cout << "Introduce la cadena: ";
-    //cin.ignore();
-    cin.getline(vector, TAMANO_MAXIMO); //Así puedes declarar cadenas de cualquier tamaño menor que el máximo
+    cin.getline(vector, TAMANO_MAXIMO); 
     
     //Cálculos    
     int i = 0;
@@ -22,7 +16,6 @@ int main(){
             for (int j = i; j < tamano_real; j++){
                 vector[j] = vector[j+1];
             }
-           // tamano_real--; Tampoco sería necesario porque el '\0' se desplaza
         } else {
             i++;
         }
