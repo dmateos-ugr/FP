@@ -3,6 +3,10 @@
 using namespace std;
 
 int MCD(int n1, int n2){
+    if (n1 == 0 || n2 == 0){
+        return 0;
+    }
+    
     int resto;
     while (n2 != 0){
         resto = n1 % n2;
