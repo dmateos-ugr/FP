@@ -79,7 +79,7 @@ double AreaPoligono(Poligono poligono){
             for (int i = 0; i < B.num_puntos; i++){
                 if (i != 1){
                     B.puntos[j] = B.puntos[i];
-                    j++;calcu
+                    j++;
                 }
             }
             B.num_puntos--; // = j
@@ -117,6 +117,5 @@ int main(){
     area = AreaPoligono(pol);
     
     cout << "El área del polígono dado es: " << area << endl;
-    
     return 0;
 }
