@@ -6,50 +6,24 @@ class Recta{
     private:
         double a, b, c;
         
-        bool DatosCorrectos(double n1, double n2){
-                return !(n1 == 0 && n2 == 0);
-            }
+        bool DatosCorrectos(double n1, double n2);
+        
     public:
-        Recta(double n1, double n2, double n3){
-            SetCoeficientes(n1, n2, n3);
-        }
+        Recta(double n1, double n2, double n3);
         
-        double SetCoeficientes(double n1, double n2, double n3){
-            if (DatosCorrectos(n1, n2)){
-                a = n1;
-                b = n2;
-                c = n3;
-            } else {
-                a = 0;
-                b = 1;
-                c = 0;
-                cout << "Coeficientes incorrectos. La recta se ha establecido como el eje x." << endl;
-            }
-        }
+        double SetCoeficientes(double n1, double n2, double n3);
         
-        double GetA(){
-            return a;
-        }
+        double GetA();
         
-        double GetB(){
-            return b;
-        }
+        double GetB();
         
-        double GetC(){
-            return c;
-        }
+        double GetC();
         
-        double Pendiente(){
-            return -a/b;
-        }
+        double Pendiente();
         
-        double ObtenerY(double x){
-            return (-c - x*a)/b;
-        }
+        double ObtenerY(double x);
         
-        double ObtenerX(double y){
-            return (-c - y*a)/b;
-        }
+        double ObtenerX(double y);
 };
 
 int main(){
@@ -85,4 +59,49 @@ int main(){
     cout << "El valor de abscisa correspondiente a la ordenada " << y << " en la recta 1 es: " << x_result << endl;
     
     return 0;
+}
+
+Recta::Recta(double n1, double n2, double n3){
+    SetCoeficientes(n1, n2, n3);
+}
+
+bool Recta::DatosCorrectos(double n1, double n2){
+    return !(n1 == 0 && n2 == 0);
+}
+
+double Recta::SetCoeficientes(double n1, double n2, double n3){
+    if (DatosCorrectos(n1, n2)){
+        a = n1;
+        b = n2;
+        c = n3;
+    } else {
+        a = 0;
+        b = 1;
+        c = 0;
+        cout << "Coeficientes incorrectos. La recta se ha establecido como el eje x." << endl;
+    }
+}
+
+double Recta::GetA(){
+    return a;
+}
+
+double Recta::GetB(){
+    return b;
+}
+
+double Recta::GetC(){
+    return c;
+}
+
+double Recta::Pendiente(){
+    return -a/b;
+}
+
+double Recta::ObtenerY(double x){
+    return (-c - x*a)/b;
+}
+
+double Recta::ObtenerX(double y){
+    return (-c - y*a)/b;
 }

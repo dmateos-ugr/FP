@@ -8,54 +8,19 @@ class DepositoSimulacion{
         double interes;
         
     public:
-        DepositoSimulacion(double c, double i){
-            capital = c;
-            interes = i;
-        }
+        DepositoSimulacion(double c, double i);
     
-        bool SetCapital(double c){
-            if (c >= 0){
-                capital = c;
-                return true;
-            } else {
-                return false;
-            }
-        }
+        bool SetCapital(double c);
         
-        double GetCapital(){
-            return capital;
-        }
+        double GetCapital();
         
-        bool SetInteres(double i){
-            if (i >= 0){
-                interes = i;
-                return true;
-            } else {
-                return false;
-            }
-        }
+        bool SetInteres(double i);
         
-        double GetInteres(){
-            return interes;
-        }
+        double GetInteres();
         
-        double CapitalTalAnios(int anios){
-            double result = capital;
-            for (int i = 0; i < anios; i++){
-                result = result * (100+interes) / 100;
-            }
-            return result;
-        }
+        double CapitalTalAnios(int anios);
         
-        int AniosParaCantidad(double cantidad){
-            double c = capital;
-            int result = 0;
-            while (c < cantidad){
-                c = c * (100+interes) / 100;
-                result += 1;
-            }
-            return result;
-        }
+        int AniosParaCantidad(double cantidad);
         
 };
 
@@ -82,4 +47,53 @@ int main(){
     cout << "Para obtener un capital de " << cantidad_entrada << " serían necesarios un total de " << anios_salida << " años." << endl;
     
     return 0;
+}
+
+DepositoSimulacion::DepositoSimulacion(double c, double i){
+    capital = c;
+    interes = i;
+}
+
+bool DepositoSimulacion::SetCapital(double c){
+    if (c >= 0){
+        capital = c;
+        return true;
+    } else {
+        return false;
+    }
+}
+
+double DepositoSimulacion::GetCapital(){
+    return capital;
+}
+
+bool DepositoSimulacion::SetInteres(double i){
+    if (i >= 0){
+        interes = i;
+        return true;
+    } else {
+        return false;
+    }
+}
+
+double DepositoSimulacion::GetInteres(){
+    return interes;
+}
+
+double DepositoSimulacion::CapitalTalAnios(int anios){
+    double result = capital;
+    for (int i = 0; i < anios; i++){
+        result = result * (100+interes) / 100;
+    }
+    return result;
+}
+
+int DepositoSimulacion::AniosParaCantidad(double cantidad){
+    double c = capital;
+    int result = 0;
+    while (c < cantidad){
+        c = c * (100+interes) / 100;
+        result += 1;
+    }
+    return result;
 }

@@ -7,39 +7,21 @@ class Recta{
         double a, b, c;
     
     public:
-        Recta(double n1, double n2, double n3){
-            SetCoeficientes(n1, n2, n3);
-        }
+        Recta(double n1, double n2, double n3);
     
-        void SetCoeficientes(double n1, double n2, double n3){
-            a = n1;
-            b = n2;
-            c = n3;
-        }
+        void SetCoeficientes(double n1, double n2, double n3);
         
-        double GetA(){
-            return a;
-        }
+        double GetA();
         
-        double GetB(){
-            return b;
-        }
+        double GetB();
         
-        double GetC(){
-            return c;
-        }
+        double GetC();
         
-        double Pendiente(){
-            return -a/b;
-        }
+        double Pendiente();
         
-        double ObtenerY(double x){
-            return (-c - x*a)/b;
-        }
+        double ObtenerY(double x);
         
-        double ObtenerX(double y){
-            return (-c - y*a)/b;
-        }
+        double ObtenerX(double y);
 };
 
 int main(){
@@ -75,4 +57,38 @@ int main(){
     cout << "El valor de abscisa correspondiente a la ordenada " << y << " en la recta 1 es: " << x_result << endl;
     
     return 0;
+}
+
+Recta::Recta(double n1, double n2, double n3){
+    SetCoeficientes(n1, n2, n3);
+}
+
+void Recta::SetCoeficientes(double n1, double n2, double n3){
+    a = n1;
+    b = n2;
+    c = n3;
+}
+
+double Recta::GetA(){
+    return a;
+}
+
+double Recta::GetB(){
+    return b;
+}
+
+double Recta::GetC(){
+    return c;
+}
+
+double Recta::Pendiente(){
+    return -a/b;
+}
+
+double Recta::ObtenerY(double x){
+    return (-c - x*a)/b;
+}
+
+double Recta::ObtenerX(double y){
+    return (-c - y*a)/b;
 }
