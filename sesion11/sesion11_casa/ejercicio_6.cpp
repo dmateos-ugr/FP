@@ -155,12 +155,12 @@ void Conjunto::GetElementos(int v[]){
 }
 
 bool Conjunto::Existe(int n){
-    bool result;
+    bool result = false;
     int extremo_inferior = 0;
     int extremo_superior = num_elem - 1;
     int i = extremo_inferior + (extremo_superior - extremo_inferior)/2;
 
-    while (extremo_inferior != extremo_superior && !result){
+    while (extremo_inferior <= extremo_superior && !result){
         if (n == elementos[i]){
             result = true;
         } else if (n > elementos[i]){
