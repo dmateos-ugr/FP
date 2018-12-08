@@ -79,13 +79,7 @@ void Conjunto::Ordenar(){
 }
 
 void Conjunto::EliminarRepetidos(){
-    //Formas realizando primero la eliminación de repetidos:
-    //Forma 1: por cada elemento, recorro el vector a partir de él eliminando los que son iguales a él.
-
-
-    //Forma 2: por cada elemento, voy guardandalo en otro vector si no está ya en él. si está en él, lo elimino del original.
-    //Ordenar forma papa + eliminar = 30 secs
-    //Eliminar + ordenar forma papa = 21 secs
+    //Por cada elemento, voy guardandalo en otro vector si no está ya en él. si está en él, lo elimino del original.
     int elem_unicos[MAXELEM];
     int num_elem_unicos = 0;
     bool encontrado;
@@ -109,25 +103,6 @@ void Conjunto::EliminarRepetidos(){
             i++;
         }
     }
-
-
-    /*
-    //Forma realizando primero la ordenación y aprovechándose de ello.
-    //Ordenar forma papa + eliminar = 30 secs
-    int i = 0;
-    while (i < num_elem - 1){
-        if (elementos[i] == elementos[i+1]){
-            for (int j = i; j < num_elem; j++){
-                elementos[j] = elementos[j+1];
-            }
-            num_elem--;
-        } else {
-            i++;
-        }
-
-    }
-    cout << "done" << endl;
-    */
 }
 
 Conjunto::Conjunto(){
@@ -218,7 +193,7 @@ Conjunto Conjunto::Union(Conjunto c){
     int elementos2[MAXELEM];
     c.GetElementos(elementos2);
 
-    while (i < tamano1 || j < tamano2){
+    while (i < tamano1 && j < tamano2){
         if (elementos[i] < elementos2[j]){
             v_result[i_result] = elementos[i];
             i++;
