@@ -154,10 +154,12 @@ int Frase::NumeroPalabras(){
 }
 
 void Frase::BorraPalabra(int k_esima){
-    int pos_inicial = posiciones_palabras[k_esima - 1][0];
-    int pos_final = posiciones_palabras[k_esima - 1][1];
-    caracteres.erase(caracteres.begin() + pos_inicial, caracteres.begin() + pos_final + 1);
-    AnalizarFrase();
+    if (k_esima > 0 && k_esima <= posiciones_palabras.size()){
+        int pos_inicial = posiciones_palabras[k_esima - 1][0];
+        int pos_final = posiciones_palabras[k_esima - 1][1];
+        caracteres.erase(caracteres.begin() + pos_inicial, caracteres.begin() + pos_final + 1);
+        AnalizarFrase();
+    }
 }
 
 void Frase::MoverPalabraFinal(int k_esima){
