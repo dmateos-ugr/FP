@@ -207,6 +207,7 @@ void Frase::Borrar(VectorParejasCaracterEntero v){
     int j = 0;
     for (int i = 0; i < parejas.size(); i++){
         veces_eliminado = 0;
+        j = 0;
         
         while (j < caracteres.size() && veces_eliminado < parejas[i].n){
             if (caracteres[j] == parejas[i].caracter){
