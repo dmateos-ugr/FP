@@ -56,26 +56,17 @@ int main(){
 }
 
 void Conjunto::Ordenar(){
-    bool elemento_ordenado;
-    int elemento;
+    int j, elemento;
+    
     for (int i = 1; i < num_elem; i++){
         elemento = elementos[i];
-        elemento_ordenado = false;
-        for (int j = i - 1; j >= 0 && !elemento_ordenado; j--){
-            if (elemento < elementos[j]){
-                elementos[j+1] = elementos[j];
-            } else {
-                elementos[j+1] = elemento;
-                elemento_ordenado = true;
-            }
+        j = i - 1;
+        while (j >= 0 && elemento < elementos[j]){
+            elementos[j+1] = elementos[j];
+            j--;
         }
-
-        if (!elemento_ordenado){
-            elementos[0] = elemento;
-        }
-
+        elementos[j+1] = elemento;
     }
-
 }
 
 void Conjunto::EliminarRepetidos(){

@@ -57,25 +57,18 @@ int main(){
 
 
 void Conjunto::Ordenar(){
-    int elemento;
-    bool ordenado = false;
+    int j, elemento;
     for (int i = 1; i < elementos.size(); i++){
-        ordenado = false;
         elemento = elementos[i];
         elementos.erase(elementos.begin() + i);
-        for (int j = i - 1; j >= 0 && !ordenado; j--){
-            if (elemento > elementos[j]){
-                elementos.insert(elementos.begin() + j + 1, elemento);
-                ordenado = true;
-            }
+        j = i - 1;
+        while (j>= 0 && elementos[j] > elemento){
+            j--;
         }
-        
-        if (!ordenado){
-            elementos.insert(elementos.begin(), elemento);
-
-        }
+        elementos.insert(elementos.begin() + j + 1, elemento);
     }
 }
+
 
 void Conjunto::EliminarRepetidos(){
     vector<int> elementos_unicos;
