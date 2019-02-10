@@ -82,6 +82,8 @@ void Laberinto::GetPosicionInicio(int v[2]){
     
     if (!encontrado){
         cout << "ERROR: No se ha encontrado el inicio del laberinto." << endl;
+        v[0] = -1;
+        v[1] = -1;
     }
 }
 
